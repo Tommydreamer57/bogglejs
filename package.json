@@ -1,0 +1,14 @@
+{
+  "name": "bogglejs",
+  "version": "1.0.0",
+  "description": "package for building boggle boards and validating words",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^22.4.3"
+  }
+}
