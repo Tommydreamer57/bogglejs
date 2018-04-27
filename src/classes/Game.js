@@ -3,7 +3,7 @@ const Boggle = require('./Boggle');
 
 class Game {
     static get createUser() { return statics.createUser }
-    static get countPoints() { return statics.countPoints }
+    static get score() { return statics.score }
     static get compareWords() { return statics.compareWords }
     static get findWinner() { return statics.findWinner }
     constructor(game) {

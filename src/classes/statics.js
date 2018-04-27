@@ -197,10 +197,10 @@ function createUser(config) {
     if (!user.words) user.words = [];
     if (!user.points) user.points = 0;
     if (!user.winner) user.winner = false;
-    return user
+    return user;
 }
 
-function countPoints(word, boardSize = 4) {
+function score(word, boardSize = 4) {
     if (!word || !word.length || parseInt(word.length) !== word.length) return 0;
     switch (boardSize) {
         case 3:
@@ -235,8 +235,9 @@ function countPoints(word, boardSize = 4) {
                 case 5:
                     return 2;
                 case 6:
-                    return 5;
+                    return 3;
                 case 7:
+                    return 5;
                 default:
                     if (word.length > 7) return 11;
                     else return 0;
@@ -255,7 +256,7 @@ function compareWords(players, boardSize = 4) {
             let count = allWords.filter(word => word.toUpperCase() === playerWord.toUpperCase()).length;
             return count === 1;
         });
-        let points = words.reduce((points, word) => points + Game.countPoints(word, boardSize), 0);
+        let points = words.reduce((points, word) => points + Game.score(word, boardSize), 0);
         // RETURN THE PLAYER WITH THE UPDATED WORD ARRAY AND POINTS
         return Object.assign({}, player, { points });
     });
@@ -278,7 +279,7 @@ module.exports = {
     createBoard,
     walkPath,
     createUser,
-    countPoints,
+    score,
     compareWords,
     findWinner
 }
